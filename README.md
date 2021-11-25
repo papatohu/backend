@@ -3,10 +3,13 @@
 Repo for the backend of the Papatohu project
 
 ##ToDo's:
-
 - [ ] change to https
 - [ ] decide db
 - [ ] where to host
 - [ ] test api call
 - [ ] ?????
 - [ ] Profit
+
+##Links:
+- [JUnit5](https://junit.org/junit5/docs/current/user-guide/)
+- [logger](http://www.slf4j.org)
