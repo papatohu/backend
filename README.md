@@ -4,7 +4,7 @@ Repo for the backend of the Papatohu project
 
 ##ToDo's:
 - [ ] change to https
-- [ ] decide db
+- [x] decide db = MongoDB
 - [ ] where to host
 - [ ] test api call
 - [ ] ?????
