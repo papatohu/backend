@@ -9,8 +9,8 @@ import java.util.UUID;
 public interface ItemRepository extends MongoRepository<UConfig, String> {
 
     @Query("{id:'?0'}")
-    UConfig findItemByID(UUID id);
+    UConfig findItemByID(String id);
 
-    public long count();
+    long count();
 
 }
