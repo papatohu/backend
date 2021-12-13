@@ -10,24 +10,24 @@ import java.util.UUID;
 public class UConfig {
 
     @Id
-    private UUID id;
+    private String id;
 
     private String username;
     private String pw;
-    private List<String> tileConfigs;
+    private String tileConfigs;
 
-    public UConfig(String username, String pw, List<String> tileConfigs) {
-        this.id = UUID.randomUUID();
+    public UConfig(String id,String username, String pw, String tileConfigs) {
+        this.id = id;
         this.username = username;
         this.pw = pw;
         this.tileConfigs = tileConfigs;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -47,11 +47,11 @@ public class UConfig {
         this.pw = pw;
     }
 
-    public List<String> getTileConfigs() {
+    public String getTileConfigs() {
         return tileConfigs;
     }
 
-    public void setTileConfigs(List<String> tileConfigs) {
+    public void setTileConfigs(String tileConfigs) {
         this.tileConfigs = tileConfigs;
     }
 }
