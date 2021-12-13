@@ -6,7 +6,7 @@ Repo for the backend of the Papatohu project
 - [ ] change to https
 - [x] decide db = MongoDB
 - [ ] where to host
-- [ ] test api call
+- [x] test api call
 - [ ] ?????
 - [ ] Profit
 
