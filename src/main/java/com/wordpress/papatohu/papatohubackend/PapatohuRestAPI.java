@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -20,7 +19,7 @@ public class PapatohuRestAPI {
 
     Logger logger = LoggerFactory.getLogger(PapatohuRestAPI.class);
 
-    @PostMapping("/newUser")
+    @GetMapping("/newUser")
     public UConfig conf(@RequestBody UConfig config) {
         config.setId(UUID.randomUUID().toString());
         UConfigRepo.save(config);

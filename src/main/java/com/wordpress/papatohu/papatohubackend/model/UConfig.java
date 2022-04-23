@@ -3,9 +3,6 @@ package com.wordpress.papatohu.papatohubackend.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-import java.util.UUID;
-
 @Document("UConfig")
 public class UConfig {
 
@@ -16,7 +13,7 @@ public class UConfig {
     private String pw;
     private Object tileConfigs;
 
-    public UConfig(String id,String username, String pw, String tileConfigs) {
+    public UConfig(String id, String username, String pw, Object tileConfigs) {
         this.id = id;
         this.username = username;
         this.pw = pw;
