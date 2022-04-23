@@ -14,7 +14,7 @@ public class UConfig {
 
     private String username;
     private String pw;
-    private String tileConfigs;
+    private Object tileConfigs;
 
     public UConfig(String id,String username, String pw, String tileConfigs) {
         this.id = id;
@@ -47,11 +47,11 @@ public class UConfig {
         this.pw = pw;
     }
 
-    public String getTileConfigs() {
+    public Object getTileConfigs() {
         return tileConfigs;
     }
 
-    public void setTileConfigs(String tileConfigs) {
+    public void setTileConfigs(Object tileConfigs) {
         this.tileConfigs = tileConfigs;
     }
 }

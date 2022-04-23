@@ -24,8 +24,24 @@ public class PapatohuRestAPI {
     public UConfig conf(@RequestBody UConfig config) {
         config.setId(UUID.randomUUID().toString());
         UConfigRepo.save(config);
-        logger.info("created new User Config");
+        logger.info("created new User");
         return config;
+    }
+
+    @GetMapping("/getConfig/{id}")
+    public Object conf(@PathVariable String id) {
+        UConfig item = UConfigRepo.findItemByID(id);
+        logger.info("return config");
+        return item.getTileConfigs();
+    }
+
+    @GetMapping("updateConfig/{id}")
+    public Object updateConfig(@PathVariable String id,@RequestBody Object newConfig){
+        UConfig item = UConfigRepo.findItemByID(id);
+        item.setTileConfigs(newConfig);
+        UConfigRepo.save(item);
+        logger.info("saved new config");
+        return newConfig;
     }
 
     @GetMapping("/get/{id}")
@@ -35,10 +51,16 @@ public class PapatohuRestAPI {
         return item;
     }
 
-    @GetMapping("/authenticate")
-    public UConfig authUser(@RequestBody UConfig config) {
-        UConfig item = UConfigRepo.findItemByID(config.getUsername());
-        if (config.getPw().equals(item.getPw())) {
+    /**
+     * Work in Progress
+     * @param username
+     * @param pw
+     * @return
+     */
+    @GetMapping("/login/{username}")
+    public UConfig authUser(@PathVariable String username,@RequestBody String pw) {
+        UConfig item = UConfigRepo.findItemByName(username);
+        if (pw.equals(item.getPw())) {
             return item;
         } else {
             return new UConfig("ERROR", "wrong Password", "", "");
