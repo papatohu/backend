@@ -76,4 +76,9 @@ public class PapatohuRestAPI {
         }
     }
 
+    @GetMapping("/testServer/hello")
+    public String testServerSimple() {
+        return "Hello World!";
+    }
+
 }

@@ -1,14 +1,26 @@
 package com.wordpress.papatohu.papatohubackend;
 
-import org.junit.jupiter.api.Test;
+import com.wordpress.papatohu.papatohubackend.model.UConfig;
+import org.junit.jupiter.api.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class PapatohuBackendApplicationTests {
 
+    private UConfig testUser = new UConfig("", "Junit_Test_Slave", "Secure123", "Hello");
+
+    @Autowired
+    private PapatohuRestAPI restAPI;
+
     @Test
-    void contextLoads() {
+    @Order(1)
+    public void contextLoads() throws Exception {
+        assertThat(restAPI).isNotNull();
     }
 
     @Test
@@ -29,3 +41,4 @@ class PapatohuBackendApplicationTests {
 
 
 }
+
