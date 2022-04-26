@@ -19,8 +19,8 @@ public class PapatohuRestAPI {
 
     Logger logger = LoggerFactory.getLogger(PapatohuRestAPI.class);
 
-    @GetMapping("/newUser")
-    public UConfig conf(@RequestBody UConfig config) {
+    @PutMapping("/newUser")
+    public UConfig newUser(@RequestBody UConfig config) {
         config.setId(UUID.randomUUID().toString());
         UConfigRepo.save(config);
         logger.info("created new User");
@@ -28,14 +28,14 @@ public class PapatohuRestAPI {
     }
 
     @GetMapping("/getConfig/{id}")
-    public Object conf(@PathVariable String id) {
+    public Object getConfig(@PathVariable String id) {
         UConfig item = UConfigRepo.findItemByID(id);
         logger.info("return config");
         return item.getTileConfigs();
     }
 
-    @GetMapping("updateConfig/{id}")
-    public Object updateConfig(@PathVariable String id,@RequestBody Object newConfig){
+    @PostMapping("updateConfig/{id}")
+    public Object updateConfig(@PathVariable String id, @RequestBody Object newConfig) {
         UConfig item = UConfigRepo.findItemByID(id);
         item.setTileConfigs(newConfig);
         UConfigRepo.save(item);
@@ -44,20 +44,30 @@ public class PapatohuRestAPI {
     }
 
     @GetMapping("/get/{id}")
-    public UConfig getConfig(@PathVariable String id) {
+    public UConfig getUser(@PathVariable String id) {
         UConfig item = UConfigRepo.findItemByID(id);
         logger.info("request user config");
         return item;
     }
 
+    @DeleteMapping("/deleteUser/{id}")
+    public String deleteUser(@PathVariable String id) {
+        try {
+            UConfig item = UConfigRepo.findItemByID(id);
+            UConfigRepo.delete(item);
+        } catch (Exception e) {
+            logger.info("Request to delete non existing User");
+            return "User does not exist";
+        }
+        logger.info("User: \'" + id + "\' was deleted");
+        return "User: \'" + id + "\' was deleted";
+    }
+
     /**
      * Work in Progress
-     * @param username
-     * @param pw
-     * @return
      */
     @GetMapping("/login/{username}")
-    public UConfig authUser(@PathVariable String username,@RequestBody String pw) {
+    public UConfig authUser(@PathVariable String username, @RequestBody String pw) {
         UConfig item = UConfigRepo.findItemByName(username);
         if (pw.equals(item.getPw())) {
             return item;
