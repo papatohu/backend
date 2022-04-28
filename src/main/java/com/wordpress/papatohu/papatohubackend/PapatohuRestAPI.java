@@ -55,12 +55,12 @@ public class PapatohuRestAPI {
         try {
             UConfig item = UConfigRepo.findItemByID(id);
             UConfigRepo.delete(item);
+            logger.info("User: \'" + id + "\' was deleted");
+            return "User: \'" + id + "\' was deleted";
         } catch (Exception e) {
             logger.info("Request to delete non existing User");
             return "User does not exist";
         }
-        logger.info("User: \'" + id + "\' was deleted");
-        return "User: \'" + id + "\' was deleted";
     }
 
     /**

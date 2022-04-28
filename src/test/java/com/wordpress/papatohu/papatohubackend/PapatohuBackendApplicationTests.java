@@ -39,6 +39,47 @@ class PapatohuBackendApplicationTests {
         restAPI.deleteUser(serverReturn.getId());
     }
 
+    @Test
+    @Order(4)
+    public void testGetUser() {
+        UConfig serverReturn = restAPI.newUser(testUser);
+        testUser.setId(serverReturn.getId());
+        UConfig getUser = restAPI.getUser(serverReturn.getId());
+        assertThat(serverReturn.getId()).isEqualTo(getUser.getId());
+        assertThat(serverReturn.getUsername()).isEqualTo(getUser.getUsername());
+        assertThat(serverReturn.getPw()).isEqualTo(getUser.getPw());
+        assertThat(serverReturn.getTileConfigs()).isEqualTo(getUser.getTileConfigs());
+        restAPI.deleteUser(serverReturn.getId());
+    }
+
+    @Test
+    @Order(5)
+    public void testGetConfig() {
+        UConfig serverReturn = restAPI.newUser(testUser);
+        testUser.setId(serverReturn.getId());
+        Object config = restAPI.getConfig(serverReturn.getId());
+        assertThat(testUser.getTileConfigs()).isEqualTo(config);
+        restAPI.deleteUser(serverReturn.getId());
+    }
+
+    @Test
+    @Order(6)
+    public void testSetConfig() {
+        UConfig serverReturn = restAPI.newUser(testUser);
+        testUser.setId(serverReturn.getId());
+        Object config = "Welt";
+        assertThat(testUser.getTileConfigs()).isEqualTo("Hello");
+        serverReturn.setTileConfigs(restAPI.updateConfig(serverReturn.getId(), config));
+        assertThat(config).isEqualTo(serverReturn.getTileConfigs());
+        restAPI.deleteUser(serverReturn.getId());
+    }
+
+    @Test
+    @Order(7)
+    public void testDeleteUser() {
+        assertThat("User does not exist").isEqualTo(restAPI.deleteUser(testUser.getId()));
+    }
+
 
 }
 
