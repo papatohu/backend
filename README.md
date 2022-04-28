@@ -8,6 +8,7 @@ Take a look on our Blog to stay upto date [Blog](https://papatohu.wordpress.com/
 
 - [x] change to https
 - [x] decide db = MongoDB
+- [x] test of api endpoints
 - [ ] login endpoints
 - [ ] where to host
 - [x] test api call
