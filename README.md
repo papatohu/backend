@@ -1,17 +1,17 @@
-# Backend
+# Papatohu Backend
 
 Repo for the backend of the Papatohu project
+
+Take a look on our Blog to stay upto date [Blog](https://papatohu.wordpress.com/blog/)
 
 ##ToDo's:
 - [x] change to https
 - [x] decide db = MongoDB
+- [ ] login endpoints
 - [ ] where to host
 - [x] test api call
 - [ ] ?????
 - [ ] Profit
-
-##Task
-- [ ] a
 
 
 ##Links:
