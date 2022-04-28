@@ -79,7 +79,5 @@ class PapatohuBackendApplicationTests {
     public void testDeleteUser() {
         assertThat("User does not exist").isEqualTo(restAPI.deleteUser(testUser.getId()));
     }
-
-
 }
 
