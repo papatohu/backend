@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class PapatohuBackendApplicationTests {
 
-    private UConfig testUser = new UConfig("", "Junit_Test_Slave", "Secure123", "Hello");
+    private UConfig testUser = new UConfig("", "Junit_Test", "Secure123", "Hello");
 
     @Autowired
     private PapatohuRestAPI restAPI;

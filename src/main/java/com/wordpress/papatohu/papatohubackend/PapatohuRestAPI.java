@@ -68,12 +68,15 @@ public class PapatohuRestAPI {
      */
     @GetMapping("/login/{username}")
     public UConfig authUser(@PathVariable String username, @RequestBody String pw) {
-        UConfig item = UConfigRepo.findItemByName(username);
-        if (pw.equals(item.getPw())) {
-            return item;
-        } else {
-            return new UConfig("ERROR", "wrong Password", "", "");
+        List<UConfig> items = UConfigRepo.findItemByName(username);
+        for (UConfig item : items) {
+            if (pw.equals(item.getPw())) {
+                logger.info("User: "+ item.getId()+" signed in");
+                return item;
+            }
         }
+        logger.info("unsuccessful log in try");
+        return new UConfig("ERROR", "wrong Password", "", "");
     }
 
     @GetMapping("/testServer/hello")
