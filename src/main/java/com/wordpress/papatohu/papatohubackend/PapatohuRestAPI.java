@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @EnableMongoRepositories
@@ -63,9 +64,6 @@ public class PapatohuRestAPI {
         }
     }
 
-    /**
-     * Work in Progress
-     */
     @GetMapping("/login/{username}")
     public UConfig authUser(@PathVariable String username, @RequestBody String pw) {
         List<UConfig> items = UConfigRepo.findItemByName(username);
@@ -83,5 +81,4 @@ public class PapatohuRestAPI {
     public String testServerSimple() {
         return "Hello World!";
     }
-
 }
