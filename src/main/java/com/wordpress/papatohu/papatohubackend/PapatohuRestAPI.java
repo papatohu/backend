@@ -64,8 +64,8 @@ public class PapatohuRestAPI {
         }
     }
 
-    @GetMapping("/login/{username}")
-    public UConfig authUser(@PathVariable String username, @RequestBody String pw) {
+    @GetMapping("/login/{username}/{pw}")
+    public UConfig authUser(@PathVariable String username, @PathVariable String pw) {
         List<UConfig> items = UConfigRepo.findItemByName(username);
         for (UConfig item : items) {
             if (pw.equals(item.getPw())) {
