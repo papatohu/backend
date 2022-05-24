@@ -69,7 +69,7 @@ public class PapatohuRestAPI {
         List<UConfig> items = UConfigRepo.findItemByName(username);
         for (UConfig item : items) {
             if (pw.equals(item.getPw())) {
-                logger.info("User: "+ item.getId()+" signed in");
+                logger.info("User: " + item.getId() + " signed in");
                 return item;
             }
         }
