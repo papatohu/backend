@@ -1,3 +1,4 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/bf6e1060567d49a79afd782b3585ffff)](https://www.codacy.com/gh/papatohu/backend/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=papatohu/backend&amp;utm_campaign=Badge_Grade)
 # Papatohu Backend
 
 Repo for the backend of the Papatohu project
