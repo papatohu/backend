@@ -1,0 +1,92 @@
+openapi: "3.0.3"
+info:
+  title: "papatohuBackend API"
+  description: "papatohuBackend API"
+  version: "1.0.0"
+servers:
+  - url: "https://papatohuBackend"
+paths:
+  /deleteUser/{id}:
+    delete:
+      summary: "DELETE deleteUser/{id}"
+      operationId: "deleteUser"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /get/{id}:
+    get:
+      summary: "GET get/{id}"
+      operationId: "getUser"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /getConfig/{id}:
+    get:
+      summary: "GET getConfig/{id}"
+      operationId: "getConfig"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /login/{username}/{pw}:
+    get:
+      summary: "GET login/{username}/{pw}"
+      operationId: "authUser"
+      parameters:
+        - name: "username"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+        - name: "pw"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+  /newUser:
+    put:
+      summary: "PUT newUser"
+      operationId: "newUser"
+      responses:
+        "200":
+          description: "OK"
+  /testServer/hello:
+    get:
+      summary: "GET testServer/hello"
+      operationId: "testServerSimple"
+      responses:
+        "200":
+          description: "OK"
+  /updateConfig/{id}:
+    post:
+      summary: "POST updateConfig/{id}"
+      operationId: "updateConfig"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
