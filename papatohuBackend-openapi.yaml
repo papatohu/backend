@@ -64,8 +64,8 @@ paths:
         "200":
           description: "OK"
   /newUser:
-    put:
-      summary: "PUT newUser"
+    post:
+      summary: "POST newUser"
       operationId: "newUser"
       responses:
         "200":
