@@ -20,7 +20,7 @@ public class PapatohuRestAPI {
 
     Logger logger = LoggerFactory.getLogger(PapatohuRestAPI.class);
 
-    @PutMapping("/newUser")
+    @PostMapping("/newUser")
     public UConfig newUser(@RequestBody UConfig config) {
         config.setId(UUID.randomUUID().toString());
         UConfigRepo.save(config);
